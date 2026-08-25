@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muslims_news_app/widgets/category_list_view.dart';
-import 'package:muslims_news_app/widgets/news_list_view.dart';
+import 'package:muslims_news_app/widgets/articles_list_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

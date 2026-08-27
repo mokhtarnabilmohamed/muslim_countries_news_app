@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muslims_news_app/widgets/articles_list_view_builder.dart';
-import 'package:muslims_news_app/widgets/category_list_view.dart';
+import 'package:muslims_news_app/widgets/country_list_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,11 +37,14 @@ class HomePage extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
-                child: SizedBox(height: 144, child: CategoryListView()),
+                child: SizedBox(height: 144, child: CountryListView()),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 16)),
 
-              ArticlesListViewBuilder(),
+              ArticlesListViewBuilder(
+                countryCode:
+                    "af, al, dz, az, bh, bd, bj, bn, bf, cm, td, km, ci, dj, eg, ga, gm, gn, gw, gy, id, ir, iq, jo, kz, kw, kg, lb, ly, my, mv, ml, mr, ma, mz, ne, ng, om, pk, ps, qa, sa, sn, sl, so, sd, sr, sy, tj, tg, tn, tr, tm, ae, ug, uz, ye",
+              ),
             ],
           ),
         ),

@@ -5,8 +5,8 @@ import 'package:muslims_news_app/services/news_service.dart';
 import 'package:muslims_news_app/widgets/articles_list_view.dart';
 
 class ArticlesListViewBuilder extends StatefulWidget {
-  const ArticlesListViewBuilder({super.key});
-
+  const ArticlesListViewBuilder({super.key, required this.countryCode});
+  final String countryCode;
   @override
   State<ArticlesListViewBuilder> createState() =>
       _ArticlesListViewBuilderState();
@@ -18,7 +18,7 @@ class _ArticlesListViewBuilderState extends State<ArticlesListViewBuilder> {
   @override
   void initState() {
     super.initState();
-    future = NewsService(Dio()).getNews();
+    future = NewsService(Dio()).getNews(country: widget.countryCode);
   }
 
   @override

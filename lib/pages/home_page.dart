@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:muslims_news_app/widgets/articles_list_view_builder.dart';
 import 'package:muslims_news_app/widgets/category_list_view.dart';
-import 'package:muslims_news_app/widgets/articles_list_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           children: [
             Text("أخبار ", style: TextStyle(fontSize: 24)),
             Text(
-              "المسلمين",
+              "الدول الإسلامية",
               style: TextStyle(
                 fontSize: 24,
 
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
               ),
               SliverToBoxAdapter(child: SizedBox(height: 16)),
 
-              NewsListView(),
+              ArticlesListViewBuilder(),
             ],
           ),
         ),

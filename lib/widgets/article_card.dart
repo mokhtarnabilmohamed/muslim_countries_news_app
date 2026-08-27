@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:muslims_news_app/models/article_model.dart';
 
 class ArticleCard extends StatelessWidget {
-  const ArticleCard({super.key});
+  final ArticleModel articleModel;
+  const ArticleCard({super.key, required this.articleModel});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +18,13 @@ class ArticleCard extends StatelessWidget {
               fit: BoxFit.fill,
               width: double.infinity,
               height: 200,
-              "https://www.ajnet.me/wp-content/uploads/2026/07/ap_6a5effcab08ca-1784610762.jpg?resize=770%2C513&quality=80",
+              articleModel.imageUrl ??
+                  "https://t3.ftcdn.net/jpg/10/22/24/80/360_F_1022248039_7LDxHRi3Mlt9BK3wzLBUGZp9XAO1gt2s.jpg",
             ),
           ),
 
           Text(
-            "بصمت وبوتيرة متسارعة.. الاحتلال يشيّد ساترا ترابيا ضخما داخل غزة",
+            articleModel.title,
             maxLines: 2,
             style: TextStyle(
               fontSize: 16,
@@ -30,7 +33,7 @@ class ArticleCard extends StatelessWidget {
             ),
           ),
           Text(
-            "تكشف صور أقمار صناعية عن تسارع أعمال إنشاء ساتر ترابي إسرائيلي داخل قطاع غزة يمتد لأكثر من 23 كيلومترا، بالتوازي مع إقامة منطقة أمنية على طول ما يُعرف بالخط الأصفر",
+            articleModel.description ?? "لا يوجد وصف لهذا الخبر.",
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(

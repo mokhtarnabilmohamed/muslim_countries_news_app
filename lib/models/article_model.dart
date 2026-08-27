@@ -1,7 +1,7 @@
 class ArticleModel {
-  final String imageUrl;
+  final String? imageUrl;
   final String title;
-  final String description;
+  final String? description;
 
   ArticleModel({
     required this.imageUrl,

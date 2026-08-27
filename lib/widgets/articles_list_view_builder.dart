@@ -36,6 +36,10 @@ class _ArticlesListViewBuilderState extends State<ArticlesListViewBuilder> {
               child: CircularProgressIndicator(color: Colors.green),
             ),
           )
-        : ArticlesListView(articles: articles);
+        : articles.isNotEmpty
+        ? ArticlesListView(articles: articles)
+        : SliverToBoxAdapter(
+            child: Text("حدثت مشكلة، الرجاء المحاولة في وقت لاحق."),
+          );
   }
 }

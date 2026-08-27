@@ -13,33 +13,33 @@ class ArticlesListViewBuilder extends StatefulWidget {
 }
 
 class _ArticlesListViewBuilderState extends State<ArticlesListViewBuilder> {
-  List<ArticleModel> articles = [];
-  bool isLoading = true;
-
-  Future<void> getNews() async {
-    articles = await NewsService(Dio()).getNews();
-    isLoading = false;
-    // setState(() {});
-  }
+  dynamic future;
 
   @override
   void initState() {
     super.initState();
-    getNews();
+    future = NewsService(Dio()).getNews();
   }
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
-        ? SliverToBoxAdapter(
+    return FutureBuilder<List<ArticleModel>>(
+      future: future,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return ArticlesListView(articles: snapshot.data!);
+        } else if (snapshot.hasError) {
+          return SliverToBoxAdapter(
+            child: Text("حدثت مشكلة، الرجاء المحاولة في وقت لاحق."),
+          );
+        } else {
+          return SliverToBoxAdapter(
             child: Center(
               child: CircularProgressIndicator(color: Colors.green),
             ),
-          )
-        : articles.isNotEmpty
-        ? ArticlesListView(articles: articles)
-        : SliverToBoxAdapter(
-            child: Text("حدثت مشكلة، الرجاء المحاولة في وقت لاحق."),
           );
+        }
+      },
+    );
   }
 }

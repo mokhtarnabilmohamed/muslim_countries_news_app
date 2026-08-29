@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale("ar"),
+      locale: Locale("en"),
+
       debugShowCheckedModeBanner: false,
       builder: DevicePreview.appBuilder,
       home: const HomePage(),

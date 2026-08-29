@@ -16,20 +16,19 @@ class CountryPage extends StatelessWidget {
         scrolledUnderElevation: 0,
         centerTitle: true,
         elevation: 0,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text("أخبار ", style: TextStyle(fontSize: 24)),
-            Text(
-              country.countryName,
-              style: TextStyle(
-                fontSize: 24,
+        title: Text(
+          "${country.countryName} News",
+          textAlign: TextAlign.center,
+          softWrap: true,
+          overflow: TextOverflow.ellipsis,
 
-                fontWeight: FontWeight(800),
-                color: Colors.green,
-              ),
-            ),
-          ],
+          style: TextStyle(
+            fontSize: 22,
+
+            fontWeight: FontWeight(700),
+            color: Colors.green,
+          ),
+          maxLines: 2,
         ),
       ),
       body: SafeArea(
@@ -37,9 +36,7 @@ class CountryPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: CustomScrollView(
             physics: BouncingScrollPhysics(),
-            slivers: [
-              ArticlesListViewBuilder(countryCode: country.countryCode),
-            ],
+            slivers: [ArticlesListViewBuilder(countryModel: country)],
           ),
         ),
       ),

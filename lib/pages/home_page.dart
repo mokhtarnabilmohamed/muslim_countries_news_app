@@ -36,7 +36,11 @@ class HomePage extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Text(
                   "Latest News by Country",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight(600)),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight(600),
+                    color: Colors.black,
+                  ),
                 ),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 8)),
@@ -48,7 +52,11 @@ class HomePage extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Text(
                   "Latest General News",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight(600)),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight(600),
+                    color: Colors.black,
+                  ),
                 ),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 8)),

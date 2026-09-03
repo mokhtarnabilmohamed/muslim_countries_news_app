@@ -12,23 +12,29 @@ class CountryPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: 80,
         backgroundColor: Colors.white,
         scrolledUnderElevation: 0,
         centerTitle: true,
         elevation: 0,
-        title: Text(
-          country.countryName,
-          textAlign: TextAlign.center,
-          softWrap: true,
-          overflow: TextOverflow.ellipsis,
+        flexibleSpace: Padding(
+          padding: const EdgeInsets.only(right: 56.0, left: 56.0, top: 48.0),
+          child: Center(
+            child: Text(
+              "${country.countryName}'s News",
+              textAlign: TextAlign.center,
+              softWrap: true,
+              overflow: TextOverflow.ellipsis,
 
-          style: TextStyle(
-            fontSize: 22,
+              style: TextStyle(
+                fontSize: 20,
 
-            fontWeight: FontWeight(700),
-            color: Colors.green,
+                fontWeight: FontWeight(700),
+                color: Colors.green,
+              ),
+              maxLines: 2,
+            ),
           ),
-          maxLines: 2,
         ),
       ),
       body: SafeArea(

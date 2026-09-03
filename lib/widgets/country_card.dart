@@ -23,8 +23,8 @@ class CountryCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsetsDirectional.only(end: 8.0),
         child: Container(
-          height: 144,
-          width: 200,
+          height: 160,
+          width: 184,
           alignment: AlignmentGeometry.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
@@ -33,24 +33,28 @@ class CountryCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Expanded(
-                child: Center(
-                  child: Text(
-                    country.countryName,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight(500)),
-                  ),
-                ),
-              ),
               Container(
                 height: 104,
                 width: 200,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(16),
-                    bottomRight: Radius.circular(16),
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  ),
+                  image: DecorationImage(
+                    image: AssetImage(country.imagePath),
+                    fit: BoxFit.fill,
                   ),
                 ),
-                child: SvgPicture.asset(country.imagePath, fit: BoxFit.fill),
+              ),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    country.countryName,
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight(500)),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
             ],
           ),

@@ -14,13 +14,27 @@ class ArticleCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadiusGeometry.circular(16),
-            child: Image.network(
-              fit: BoxFit.fill,
-              width: double.infinity,
-              height: 200,
-              articleModel.imageUrl ??
-                  "https://t3.ftcdn.net/jpg/10/22/24/80/360_F_1022248039_7LDxHRi3Mlt9BK3wzLBUGZp9XAO1gt2s.jpg",
-            ),
+            child: articleModel.imageUrl == null
+                ? Image.asset(
+                    'lib/assets/images/other/image_placeholder.png',
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 200,
+                  )
+                : Image.network(
+                    articleModel.imageUrl!,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 200,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        'lib/assets/images/other/image_placeholder.png',
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: 200,
+                      );
+                    },
+                  ),
           ),
 
           Text(
@@ -33,7 +47,8 @@ class ArticleCard extends StatelessWidget {
             ),
           ),
           Text(
-            articleModel.description ?? "لا يوجد وصف لهذا الخبر.",
+            articleModel.description ??
+                "Unfortunately, there is no description for this article.",
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(

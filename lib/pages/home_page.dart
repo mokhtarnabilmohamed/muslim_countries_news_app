@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.green,
         scrolledUnderElevation: 0,
         centerTitle: true,
         elevation: 0,
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             fontSize: 22,
 
             fontWeight: FontWeight(700),
-            color: Colors.green,
+            color: Colors.white,
           ),
         ),
       ),
@@ -31,16 +31,34 @@ class HomePage extends StatelessWidget {
           child: CustomScrollView(
             physics: BouncingScrollPhysics(),
             slivers: [
+              SliverToBoxAdapter(child: SizedBox(height: 8)),
+
               SliverToBoxAdapter(
-                child: SizedBox(height: 144, child: CountryListView()),
+                child: Text(
+                  "Latest News by Country",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight(600)),
+                ),
               ),
-              SliverToBoxAdapter(child: SizedBox(height: 16)),
+              SliverToBoxAdapter(child: SizedBox(height: 8)),
+
+              SliverToBoxAdapter(
+                child: SizedBox(height: 160, child: CountryListView()),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 8)),
+              SliverToBoxAdapter(
+                child: Text(
+                  "Latest General News",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight(600)),
+                ),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 8)),
 
               ArticlesListViewBuilder(
                 countryModel: CountryModel(
                   imagePath: "",
-                  countryName: "countryName",
-                  countryCode: "sa,eg,tr,sy,pk",
+                  countryName: "",
+                  countryCode: "sa,eg,tr,sy,ps",
+                  q: "saudi OR egypt OR turkey OR syria OR palestine",
                 ),
               ),
             ],

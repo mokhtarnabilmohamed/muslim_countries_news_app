@@ -17,7 +17,7 @@ class CountryPage extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
         title: Text(
-          "${country.countryName} News",
+          country.countryName,
           textAlign: TextAlign.center,
           softWrap: true,
           overflow: TextOverflow.ellipsis,

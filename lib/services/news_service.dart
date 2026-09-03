@@ -11,7 +11,7 @@ class NewsService {
   }) async {
     try {
       Response response = await dio.get(
-        "https://newsdata.io/api/1/latest?apikey=pub_019e271847b8443d9fd0402080971bd1&language=ar&category=politics&country=${countryModel.countryCode}&q=${countryModel.countryName}",
+        "https://newsdata.io/api/1/latest?apikey=pub_019e271847b8443d9fd0402080971bd1&language=en&category=politics,business,education,environment,technology&country=${countryModel.countryCode}&q=${countryModel.q}",
       );
 
       Map<String, dynamic> jsonData = response.data;
@@ -20,11 +20,7 @@ class NewsService {
       List<ArticleModel> articlesList = [];
 
       for (var article in articles) {
-        ArticleModel articleModel = ArticleModel(
-          imageUrl: article['image_url'],
-          title: article['title'],
-          description: article['description'],
-        );
+        ArticleModel articleModel = ArticleModel.fromJson(article);
         articlesList.add(articleModel);
       }
       return articlesList;

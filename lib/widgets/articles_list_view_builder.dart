@@ -31,10 +31,11 @@ class _ArticlesListViewBuilderState extends State<ArticlesListViewBuilder> {
           return ArticlesListView(articles: snapshot.data!);
         } else if (snapshot.hasError) {
           return SliverToBoxAdapter(
-            child: Text("حدثت مشكلة، الرجاء المحاولة في وقت لاحق."),
+            child: Text("There was an error, please try again later."),
           );
         } else {
-          return SliverToBoxAdapter(
+          return SliverFillRemaining(
+            hasScrollBody: false,
             child: Center(
               child: CircularProgressIndicator(color: Colors.green),
             ),

@@ -14,7 +14,7 @@ class ArticlesListView extends StatelessWidget {
         context,
         index,
       ) {
-        return ArticleCard(articleModel: articles[index]);
+        return ArticleCard(article: articles[index]);
       }),
     );
   }

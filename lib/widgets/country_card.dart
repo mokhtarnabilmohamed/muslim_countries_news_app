@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:muslims_news_app/models/country_model.dart';
 import 'package:muslims_news_app/pages/country_page.dart';
 
@@ -28,7 +27,7 @@ class CountryCard extends StatelessWidget {
           alignment: AlignmentGeometry.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.grey, width: 1),
+            border: Border.all(color: Colors.grey.shade400, width: 1),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
